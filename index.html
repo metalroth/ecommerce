@@ -11,20 +11,24 @@
   <link href="css/styles.css" rel="stylesheet">
   <style>
     body {
-      background-color: rgb(248, 249, 250);
+      /* background-color: rgb(248, 249, 250); */
+      background-image: linear-gradient(to right, #49b0ad, #066b5a );
     }
   </style>
 </head>
 
 <body>
   <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h2 class="">Login</h2>
+    <div class="container-login">
+        <div class="form">
+        <h2 class="log-tit">Login</h2>
+        <input type="text" placeholder="Usuario o mail" name="us" id="usuario">
+        <input type="password" placeholder="Contraseña" name="ps" id="password">    
+        <button id="btn">Sign in</button>
       </div>
     </div>
   </main>
-  <footer class="text-muted">
+  <footer class="text-muted" style="background-color: white">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
