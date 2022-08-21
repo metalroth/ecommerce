@@ -197,6 +197,7 @@ a.custom-card:hover {
 .des {
   text-align: center;
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .form {
@@ -238,4 +239,37 @@ input:hover {
 .form button:hover {
   -webkit-transition: 0.5s; 
   background-color: #066b5a;
+}
+
+.container-1 {
+  background-color: #49b0ad;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+.precio-auto {
+  font-size: large;
+  background-color: #8c2e47;
+  max-width: fit-content;
+  color: white;
+  position: relative;
+
+}
+
+.imagen-auto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.cajita {
+  font-weight: 700;
+  text-align: justify;
+  margin-left: 20px;
+
 }
