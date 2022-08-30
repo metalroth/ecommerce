@@ -1,14 +1,14 @@
 const container = document.getElementById('test');
 const catID = document.getElementById('productID');
+let datos = {};
 
 async function catJson() {
-    let datos = await fetch(
+    datos = await fetch(
         PRODUCTS_URL + localStorage.getItem('catID') + EXT_TYPE
     );
     datos = await datos.json();
     mostrarProds(datos.products);
     mostrarCats(datos.catName);
-    console.log(mostrarCats());
 }
 
 catJson();
@@ -33,4 +33,8 @@ function mostrarProds(dataArray) {
     </div>  
     `;
     }
+}
+
+function mostrarCats() {
+    catID.innerHTML += datos.catName;
 }
