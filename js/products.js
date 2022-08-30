@@ -1,30 +1,36 @@
-const container = document.getElementById('test')
+const container = document.getElementById('test');
+const catID = document.getElementById('productID');
 
-
-async function autosJson() {
-    let datos = await fetch(CARS_CATEGORIES_URL)
-    datos = await datos.json()
-    mostrarAutos(datos.products)
+async function catJson() {
+    let datos = await fetch(
+        PRODUCTS_URL + localStorage.getItem('catID') + EXT_TYPE
+    );
+    datos = await datos.json();
+    mostrarProds(datos.products);
+    mostrarCats(datos.catName);
+    console.log(mostrarCats());
 }
 
-autosJson()
+catJson();
 
-
-
-
-function mostrarAutos(dataArray) {
+function mostrarProds(dataArray) {
     for (const item of dataArray) {
-    container.innerHTML +=` 
-  
-    
+        container.innerHTML +=
+            ` 
     <div class="container-1">
-    <img src="` + item.image + `" class="imagen-auto">
+    <img src="` +
+            item.image +
+            `" class="imagen-auto">
     <p class="precio-auto"> ${item.cost} ${item.currency} </p> 
     <div class="cajita">
-    <h3 class="name-auto">`+ item.name + `</h3> 
-    <p class="p-auto"> `+ item.description +`</p> 
-    </div>
-    </div>
-    ` 
+    <h3 class="name-auto">` +
+            item.name +
+            `</h3> 
+    <p class="p-auto"> ` +
+            item.description +
+            `</p> 
+      </div>
+    </div>  
+    `;
     }
 }
