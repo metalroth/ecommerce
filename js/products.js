@@ -1,17 +1,15 @@
-const container = document.getElementById('test');
-const catID = document.getElementById('productID');
-let datos = {};
+const container = document.getElementById('test')
+const catID = document.getElementById('productID')
+let datos = {}
 
 async function catJson() {
-    datos = await fetch(
-        PRODUCTS_URL + localStorage.getItem('catID') + EXT_TYPE
-    );
-    datos = await datos.json();
-    mostrarProds(datos.products);
-    mostrarCats(datos.catName);
+    datos = await fetch(PRODUCTS_URL + localStorage.getItem('catID') + EXT_TYPE)
+    datos = await datos.json()
+    mostrarProds(datos.products)
+    mostrarCats(datos.catName)
 }
 
-catJson();
+catJson()
 
 function mostrarProds(dataArray) {
     for (const item of dataArray) {
@@ -20,7 +18,7 @@ function mostrarProds(dataArray) {
     <div class="container-1">
     <img src="` +
             item.image +
-            `" class="imagen-auto">
+            `" class="img-thumbnail" >
     <p class="precio-auto"> ${item.cost} ${item.currency} </p> 
     <div class="cajita">
     <h3 class="name-auto">` +
@@ -31,10 +29,10 @@ function mostrarProds(dataArray) {
             `</p> 
       </div>
     </div>  
-    `;
+    `
     }
 }
 
 function mostrarCats() {
-    catID.innerHTML += datos.catName;
+    catID.innerHTML += datos.catName
 }
