@@ -218,7 +218,7 @@ a.custom-card:hover {
   max-width: 70%;
 }
 
-input{
+.input-incial{
   margin: 10px;
   border-radius: 13px;
   text-align: center;
@@ -248,35 +248,26 @@ input:hover {
   background-color: #066b5a;
 }
 
-.container-1 {
-  background-color: #49b0ad;
-  border-radius: 7px;
-  margin-bottom: 10px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px;
-}
-
 .precio-auto {
   font-size: large;
-  background-color: #8c2e47;
+  background-color: #066b5a;
   max-width: fit-content;
   color: white;
   position: relative;
-
+  border-radius: 7px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 5px;
 }
 
-.imagen-auto {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: fit-content;
+.sortFast {
+ max-width: 20%;
 }
 
-.cajita {
-  font-weight: 700;
-  text-align: justify;
-  margin-left: 20px;
-
+.failed {
+  border-color: red;
+  margin: 10px;
+  border-radius: 13px;
+  text-align: center;
+  border-width: 0.1rem;
+  height: 50px;
 }
