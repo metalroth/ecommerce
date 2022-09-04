@@ -3,7 +3,7 @@ const usuario = document.getElementById('usuario')
 const pass = document.getElementById('password')
 boton.addEventListener('click', submitCheck)
 
-function submitCheck() {
+/* function submitCheck() {
     const usuario = document.getElementById('usuario').value
     const pass = document.getElementById('password').value
     localStorage.setItem('userID', usuario)
@@ -17,7 +17,7 @@ function submitCheck() {
         document.getElementById('password').classList.add('failed')
     }
 }
-
+ */
 document.onkeyup = enter
 function enter(e) {
     if (e.which === 13) submitCheck()
@@ -31,3 +31,25 @@ function enter(e) {
     console.log('Email: ' + profile.getEmail()) // This is null if the 'email' scope is not present.
 }
  */
+
+function submitCheck() {
+    const usuario = document.getElementById('usuario').value
+    const pass = document.getElementById('password').value
+    localStorage.setItem('userID', usuario)
+    if (usuario === '') {
+        document.getElementById('usuario').style.border = '1px solid red'
+    }
+    if (pass === '') {
+        document.getElementById('password').style.border = '1px solid red'
+    } else {
+        window.location.href = './front.html'
+    }
+}
+
+usuario.addEventListener('click', () => {
+    usuario.style.border = '1px solid gray'
+})
+
+pass.addEventListener('click', () => {
+    pass.style.border = '1px solid gray'
+})

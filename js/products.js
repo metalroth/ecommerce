@@ -1,5 +1,5 @@
-const ORDER_ASC_BY_NAME = 'AZ'
-const ORDER_DESC_BY_NAME = 'ZA'
+const ORDER_ASC_BY_COST = 'AZ'
+const ORDER_DESC_BY_COST = 'ZA'
 const ORDER_BY_PROD_COUNT = 'Cant.'
 let currentProdsArray = []
 let prods = {}
@@ -15,8 +15,9 @@ async function catJson() {
     let datos = await fetch(URL)
     prods = await datos.json()
     currentProdsArray = prods.products
-    mostrarProds(prods.products)
+    mostrarProds()
     catID.innerHTML += `${prods.catName}`
+    console.log(currentProdsArray)
 }
 catJson()
 
@@ -77,8 +78,6 @@ document
 document
     .getElementById('rangeFilterCount')
     .addEventListener('click', function () {
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
         minCount = document.getElementById('rangeFilterCountMin').value
         maxCount = document.getElementById('rangeFilterCountMax').value
 
@@ -105,11 +104,11 @@ document
     })
 
 document.getElementById('sortAsc').addEventListener('click', function () {
-    sortAndShowProds(ORDER_ASC_BY_NAME)
+    sortAndShowProds(ORDER_ASC_BY_COST)
 })
 
 document.getElementById('sortDesc').addEventListener('click', function () {
-    sortAndShowProds(ORDER_DESC_BY_NAME)
+    sortAndShowProds(ORDER_DESC_BY_COST)
 })
 
 document.getElementById('sortAmount').addEventListener('click', () => {
@@ -124,22 +123,22 @@ document.getElementById('sortAmount').addEventListener('click', () => {
  */
 function sortProds(criteria, array) {
     let result = []
-    if (criteria === ORDER_ASC_BY_NAME) {
+    if (criteria === ORDER_ASC_BY_COST) {
         result = array.sort(function (a, b) {
-            if (a.name < b.name) {
+            if (a.cost < b.cost) {
                 return -1
             }
-            if (a.name > b.name) {
+            if (a.cost > b.cost) {
                 return 1
             }
             return 0
         })
-    } else if (criteria === ORDER_DESC_BY_NAME) {
+    } else if (criteria === ORDER_DESC_BY_COST) {
         result = array.sort(function (a, b) {
-            if (a.name > b.name) {
+            if (a.cost > b.cost) {
                 return -1
             }
-            if (a.name < b.name) {
+            if (a.cost < b.cost) {
                 return 1
             }
             return 0
@@ -166,6 +165,5 @@ function sortAndShowProds(sortCriteria) {
     currentSortCriteria = sortCriteria
     currentProdsArray = sortProds(currentSortCriteria, currentProdsArray)
 
-    //Muestro las categorías ordenadas
     mostrarProds()
 }
