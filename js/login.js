@@ -1,6 +1,6 @@
-const boton = document.getElementById('boton')
-const usuario = document.getElementById('usuario')
-const pass = document.getElementById('password')
+const boton = document.getElementById('boton'),
+    usuario = document.getElementById('usuario'),
+    pass = document.getElementById('password')
 boton.addEventListener('click', submitCheck)
 
 /* function submitCheck() {
@@ -29,19 +29,16 @@ function enter(e) {
     console.log('Name: ' + profile.getName())
     console.log('Image URL: ' + profile.getImageUrl())
     console.log('Email: ' + profile.getEmail()) // This is null if the 'email' scope is not present.
-}
- */
+} */
 
 function submitCheck() {
-    const usuario = document.getElementById('usuario').value
-    const pass = document.getElementById('password').value
-    localStorage.setItem('userID', usuario)
-    if (usuario === '') {
+    localStorage.setItem('userID', usuario.value)
+    if (usuario.value === '') {
         document.getElementById('usuario').style.border = '1px solid red'
     }
-    if (pass === '') {
+    if (pass.value === '') {
         document.getElementById('password').style.border = '1px solid red'
-    } else {
+    } else if (!(usuario.value === '') || pass.value === '') {
         window.location.href = './front.html'
     }
 }

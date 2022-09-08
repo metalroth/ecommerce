@@ -1,31 +1,30 @@
-const ORDER_ASC_BY_COST = 'AZ'
-const ORDER_DESC_BY_COST = 'ZA'
-const ORDER_BY_PROD_COUNT = 'Cant.'
+const ORDER_ASC_BY_COST = 'AZ',
+    ORDER_DESC_BY_COST = 'ZA',
+    ORDER_BY_PROD_COUNT = 'Cant.'
 let currentProdsArray = []
-let prods = {}
+/* let prods = {} */
 let currentSortCriteria = undefined
 let minCount = undefined
 let maxCount = undefined
-const URL = PRODUCTS_URL + localStorage.getItem('catID') + EXT_TYPE
-const sortInput = document.getElementById('sortFast')
-const container = document.getElementById('test')
-const catID = document.getElementById('productID')
+const URL = PRODUCTS_URL + localStorage.getItem('catID') + EXT_TYPE,
+    sortInput = document.getElementById('sortFast'),
+    container = document.getElementById('test'),
+    catID = document.getElementById('productID')
 
 async function catJson() {
     let datos = await fetch(URL)
     prods = await datos.json()
     currentProdsArray = prods.products
     mostrarProds()
-    catID.innerHTML += `${prods.catName}`
-    console.log(currentProdsArray)
+    catID.innerText += `${prods.catName}`
 }
 catJson()
 
-/**
- * It takes the currentProdssArray, which is an array of objects, and loops through it. If the
- * item's cost is greater than or equal to the minimum cost and less than or equal to the maximum cost,
- * it appends the item's information to the htmlContentToAppend variable.
- */
+function setProdID(id) {
+    localStorage.setItem('prodID', id)
+    window.location = 'product-info.html'
+}
+
 function mostrarProds() {
     let htmlContentToAppend = ''
     for (let item of currentProdsArray) {
@@ -36,7 +35,7 @@ function mostrarProds() {
                 (maxCount != undefined && parseInt(item.cost) <= maxCount))
         )
             htmlContentToAppend += `
-            <div (${item.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProdID(${item.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${item.image}" alt="${item.description}" class="img-thumbnail">
@@ -54,7 +53,7 @@ function mostrarProds() {
     }
     container.innerHTML = htmlContentToAppend
 }
-/* Filtering the products by name. */
+
 sortInput.addEventListener('input', (event) => {
     const filtrado = prods.products.filter((value) =>
         value.name.toLowerCase().includes(event.target.value.toLowerCase())

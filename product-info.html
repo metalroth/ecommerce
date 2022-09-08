@@ -15,6 +15,10 @@
         <link href="css/font-awesome.min.css" rel="stylesheet" />
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
     </head>
 
     <body>
@@ -45,11 +49,20 @@
                             <a class="nav-link" href="sell.html">Vender</a>
                         </li>
                         <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="my-profile.html"
-                                id="usuarioID"
-                            ></a>
+                            <div class="dropdown nav-item">
+                                <button
+                                    class="dropbtn nav-link"
+                                    id="usuarioID"
+                                ></button>
+                                <div class="dropdown-content">
+                                    <a class="nav-link" href="my-profile.html"
+                                        >Perfil</a
+                                    >
+                                    <a class="nav-link" href="index.html"
+                                        >Cerrar Sesión</a
+                                    >
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -57,9 +70,27 @@
         </nav>
         <main>
             <div class="container">
-                <div class="alert alert-danger text-center" role="alert">
-                    <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+                <div id="infoContainer"></div>
+            </div>
+            <div class="pic-container" id="picContainer"></div>
+            <h4>Comentarios:</h4>
+            <div id="comments"></div>
+            <div class="new-comment" id="newComment">
+                <p>Dejanos tu opinión!</p>
+                <div>
+                    <textarea class="comm-textarea" cols="30"></textarea>
                 </div>
+                <div>
+                    <p>Puntuación</p>
+                    <select class="select" name="stars" id="starsSelect">
+                        <option value="1">1 Estrella</option>
+                        <option value="2">2 Estrellas</option>
+                        <option value="3">3 Estrellas</option>
+                        <option value="4">4 Estrellas</option>
+                        <option value="5">5 Estrellas</option>
+                    </select>
+                </div>
+                <button class="btn-comment">Enviar</button>
             </div>
         </main>
         <footer class="text-muted">

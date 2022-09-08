@@ -43,7 +43,4 @@ let getJSONData = function (url) {
         })
 }
 
-function testID() {
-    contenedor.innerHTML += window.localStorage.getItem('userID')
-}
-testID()
+contenedor.innerText += window.localStorage.getItem('userID')
