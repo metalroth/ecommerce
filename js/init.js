@@ -44,3 +44,12 @@ let getJSONData = function (url) {
 }
 
 contenedor.innerText += window.localStorage.getItem('userID')
+
+function setProdID(id) {
+    localStorage.setItem('prodID', id)
+    window.location = 'product-info.html'
+}
+
+function deleteID(id) {
+    localStorage.clear('userID', id)
+}

@@ -20,11 +20,6 @@ async function catJson() {
 }
 catJson()
 
-function setProdID(id) {
-    localStorage.setItem('prodID', id)
-    window.location = 'product-info.html'
-}
-
 function mostrarProds() {
     let htmlContentToAppend = ''
     for (let item of currentProdsArray) {

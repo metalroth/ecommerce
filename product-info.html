@@ -58,7 +58,13 @@
                                     <a class="nav-link" href="my-profile.html"
                                         >Perfil</a
                                     >
-                                    <a class="nav-link" href="index.html"
+                                    <a class="nav-link" href="cart.html"
+                                        >Carrito</a
+                                    >
+                                    <a
+                                        onclick="deleteID()"
+                                        class="nav-link"
+                                        href="index.html"
                                         >Cerrar Sesión</a
                                     >
                                 </div>
@@ -72,9 +78,51 @@
             <div class="container">
                 <div id="infoContainer"></div>
             </div>
-            <div class="pic-container" id="picContainer"></div>
-            <h4>Comentarios:</h4>
-            <div id="comments"></div>
+            <div class="pic-container container">
+                <div
+                    id="carouselExampleControls"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
+                >
+                    <div class="carousel-inner" id="picContainer"></div>
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev"
+                    >
+                        <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next"
+                    >
+                        <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <h4 class="text-center font-weight-bold text-uppercase">
+                Comentarios:
+            </h4>
+            <div class="container">
+                <div class="row">
+                    <div class="card-group gap-4" id="comments"></div>
+                </div>
+            </div>
+            <h4 class="text-center font-weight-bold text-uppercase">
+                Productos relacionados:
+            </h4>
+            <div id="test2" class="row justify-content-evenly"></div>
             <div class="new-comment" id="newComment">
                 <p>Dejanos tu opinión!</p>
                 <div>
