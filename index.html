@@ -2,27 +2,19 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta
             name="google-signin-client_id"
             content="829958464856-q4d1vpo031e21v8ojlbpp4oktasnp68q.apps.googleusercontent.com"
         />
         <title>eMercado - Todo lo que busques está aquí</title>
-
         <link
             href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
             rel="stylesheet"
         />
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
-        <script
-            src="https://apis.google.com/js/platform.js"
-            async
-            defer
-        ></script>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
         <style>
             body {
                 /* background-color: rgb(248, 249, 250); */
@@ -38,10 +30,11 @@
                     <h2 class="log-tit">Login</h2>
                     <input
                         type="text"
-                        placeholder="Usuario o mail"
+                        placeholder="Nombre de usuario"
                         name="us"
                         id="usuario"
                         class="input-incial"
+                        required
                     />
                     <input
                         type="password"
@@ -49,13 +42,25 @@
                         name="ps"
                         id="password"
                         class="input-incial"
+                        required
                     />
 
-                    <div
-                        class="g-signin2"
-                        data-onsuccess="handleCredentialResponse"
-                    ></div>
                     <button id="boton">Sign in</button>
+                    <div
+                        id="g_id_onload"
+                        data-client_id="829958464856-q4d1vpo031e21v8ojlbpp4oktasnp68q.apps.googleusercontent.com"
+                        data-login_uri="http://localhost/index.html"
+                        data-auto_prompt="false"
+                    ></div>
+                    <div
+                        class="g_id_signin"
+                        data-type="standard"
+                        data-size="large"
+                        data-theme="outline"
+                        data-text="sign_in_with"
+                        data-shape="rectangular"
+                        data-logo_alignment="left"
+                    ></div>
                 </div>
             </div>
         </main>
@@ -72,8 +77,8 @@
                     - 2022
                 </p>
                 <p>
-                    Clickea <a target="_blank" href="Letra.pdf">aquí</a> para
-                    descargar la letra del obligatorio.
+                    Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del
+                    obligatorio.
                 </p>
             </div>
         </footer>

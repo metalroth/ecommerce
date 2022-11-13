@@ -2,10 +2,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>eMercado - Todo lo que busques está aquí</title>
 
         <link
@@ -41,30 +38,18 @@
                             <a class="nav-link" href="front.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="categories.html"
-                                >Categorías</a
-                            >
+                            <a class="nav-link" href="categories.html">Categorías</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="sell.html">Vender</a>
                         </li>
                         <li class="nav-item">
                             <div class="dropdown nav-item">
-                                <button
-                                    class="dropbtn nav-link"
-                                    id="usuarioID"
-                                ></button>
+                                <button class="dropbtn nav-link" id="usuarioID"></button>
                                 <div class="dropdown-content">
-                                    <a class="nav-link" href="my-profile.html"
-                                        >Perfil</a
-                                    >
-                                    <a class="nav-link" href="cart.html"
-                                        >Carrito</a
-                                    >
-                                    <a
-                                        onclick="deleteID()"
-                                        class="nav-link"
-                                        href="index.html"
+                                    <a class="nav-link" href="my-profile.html">Perfil</a>
+                                    <a class="nav-link" href="cart.html">Carrito</a>
+                                    <a onclick="deleteID()" class="nav-link" href="index.html"
                                         >Cerrar Sesión</a
                                     >
                                 </div>
@@ -77,56 +62,49 @@
         <main>
             <div class="container">
                 <div id="infoContainer"></div>
-            </div>
-            <div class="pic-container container">
-                <div
-                    id="carouselExampleControls"
-                    class="carousel slide"
-                    data-bs-ride="carousel"
-                >
-                    <div class="carousel-inner" id="picContainer"></div>
-                    <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev"
+
+                <div class="container d-flex justify-content-center">
+                    <div
+                        id="carouselExampleControls"
+                        class="carousel slide"
+                        data-bs-ride="carousel"
                     >
-                        <span
-                            class="carousel-control-prev-icon"
-                            aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next"
-                    >
-                        <span
-                            class="carousel-control-next-icon"
-                            aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                        <div class="carousel-inner" id="picContainer"></div>
+                        <button
+                            id="prev"
+                            class="carousel-control-prev"
+                            type="button"
+                            data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev"
+                        >
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button
+                            id="next"
+                            class="carousel-control-next"
+                            type="button"
+                            data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next"
+                        >
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <h4 class="text-center font-weight-bold text-uppercase">
-                Comentarios:
-            </h4>
+            <h4 class="text-center font-weight-bold text-uppercase">Comentarios:</h4>
             <div class="container">
                 <div class="row">
                     <div class="card-group gap-4" id="comments"></div>
                 </div>
             </div>
-            <h4 class="text-center font-weight-bold text-uppercase">
-                Productos relacionados:
-            </h4>
+            <h4 class="text-center font-weight-bold text-uppercase">Productos relacionados:</h4>
             <div id="test2" class="row justify-content-evenly"></div>
             <div class="new-comment" id="newComment">
                 <p>Dejanos tu opinión!</p>
                 <div>
-                    <textarea class="comm-textarea" cols="30"></textarea>
+                    <textarea id="textComment" class="comm-textarea" cols="30"></textarea>
                 </div>
                 <div>
                     <p>Puntuación</p>
@@ -138,7 +116,7 @@
                         <option value="5">5 Estrellas</option>
                     </select>
                 </div>
-                <button class="btn-comment">Enviar</button>
+                <button id="btnComment" type="button" class="btn-comment">Enviar</button>
             </div>
         </main>
         <footer class="text-muted">
@@ -154,8 +132,8 @@
                     - 2022
                 </p>
                 <p>
-                    Clickea <a target="_blank" href="Letra.pdf">aquí</a> para
-                    descargar la letra del obligatorio.
+                    Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del
+                    obligatorio.
                 </p>
             </div>
         </footer>

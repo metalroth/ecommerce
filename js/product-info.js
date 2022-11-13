@@ -1,10 +1,10 @@
 const URL_PROD = PRODUCT_INFO_URL + localStorage.getItem('prodID') + EXT_TYPE,
     container = document.getElementById('infoContainer'),
-    URL_COMS =
-        PRODUCT_INFO_COMMENTS_URL + localStorage.getItem('prodID') + EXT_TYPE,
+    URL_COMS = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem('prodID') + EXT_TYPE,
     combox = document.getElementById('comments'),
     picContainer = document.getElementById('picContainer'),
-    container2 = document.getElementById('test2')
+    container2 = document.getElementById('test2'),
+    btnComment = document.getElementById('btnComment')
 
 async function prodJson() {
     let datos = await fetch(URL_PROD)
@@ -30,22 +30,21 @@ function mostrarInfo(item) {
 }
 
 function mostrarFotos(pics) {
-    console.log(pics[0])
     let htmlContentToAppend = ''
     htmlContentToAppend += `
-    <div class="container ">
+    <div class="">
         <div class="carousel-item active">
-        <img src="${pics[0]}" class="img-thumbnail" alt="...">
-      </div>
+        <img src="${pics[0]}" class="img-thumbnail">
+        </div>
         <div class="carousel-item ">
-        <img src="${pics[1]}" class="img-thumbnail" alt="...">
-      </div>
+        <img src="${pics[1]}" class="img-thumbnail">
+        </div>
         <div class="carousel-item ">
-        <img src="${pics[2]}" class="img-thumbnail" alt="...">
-      </div>
+        <img src="${pics[2]}" class="img-thumbnail">
+       </div>
         <div class="carousel-item ">
-        <img src="${pics[3]}" class="img-thumbnail" alt="...">
-      </div>
+        <img src="${pics[3]}" class="img-thumbnail">
+       </div>
       </div>
         `
     picContainer.innerHTML += htmlContentToAppend
@@ -74,17 +73,36 @@ function showComments(coms) {
     }
 }
 
+btnComment.addEventListener('click', () => {
+    let date = new Date().toJSON().slice(0, 19)
+    combox.innerHTML += `
+    <div class="card text-center list-group-item">
+        <h5 class="card-header">${
+            localStorage.getItem('userName')
+                ? localStorage.getItem('userName')
+                : localStorage.getItem('userID')
+        }  ${localStorage.getItem('userLastName') ? localStorage.getItem('userLastName') : ''} </h5>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted"> ${date} </h6>
+                <p class="card-text">${textComment.value}</p>
+            </div>
+        <div> ${loadStarRating(starsSelect.value)} </div>
+    </div>
+`
+})
+
 function showRelated(rel) {
     let htmlContentToAppend = ''
     const { relatedProducts } = rel
     for (const item of relatedProducts) {
-        htmlContentToAppend += `<div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="${item.image}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">${item.name}</h5>
-          <a onclick="setProdID(${item.id})" class="btn btn-primary">Ver producto</a>
+        htmlContentToAppend += `
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="${item.image}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${item.name}</h5>
+                    <a onclick="setProdID(${item.id})" class="btn btn-primary">Ver producto</a>
+                 </div>
         </div>
-      </div>
                             `
     }
     container2.innerHTML = htmlContentToAppend
@@ -100,12 +118,7 @@ function loadStarRating(rating) {
     let htmlContentToAppend = ''
 
     htmlContentToAppend +=
-        checkedStarSymbol.repeat(checkedStarCount) +
-        uncheckedStarSymbol.repeat(uncheckedStarCount)
+        checkedStarSymbol.repeat(checkedStarCount) + uncheckedStarSymbol.repeat(uncheckedStarCount)
 
     return htmlContentToAppend
 }
-/* 
-<div class="col-2">
-        <img src="${pic}" class="img-thumbnail info-desc"> 
-    </div> */

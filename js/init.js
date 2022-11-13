@@ -1,10 +1,8 @@
 const CATEGORIES_URL = 'https://japceibal.github.io/emercado-api/cats/cat.json'
-const PUBLISH_PRODUCT_URL =
-    'https://japceibal.github.io/emercado-api/sell/publish.json'
+const PUBLISH_PRODUCT_URL = 'https://japceibal.github.io/emercado-api/sell/publish.json'
 const PRODUCTS_URL = 'https://japceibal.github.io/emercado-api/cats_products/'
 const PRODUCT_INFO_URL = 'https://japceibal.github.io/emercado-api/products/'
-const PRODUCT_INFO_COMMENTS_URL =
-    'https://japceibal.github.io/emercado-api/products_comments/'
+const PRODUCT_INFO_COMMENTS_URL = 'https://japceibal.github.io/emercado-api/products_comments/'
 const CART_INFO_URL = 'https://japceibal.github.io/emercado-api/user_cart/'
 const CART_BUY_URL = 'https://japceibal.github.io/emercado-api/cart/buy.json'
 const EXT_TYPE = '.json'
@@ -43,13 +41,19 @@ let getJSONData = function (url) {
         })
 }
 
-contenedor.innerText += window.localStorage.getItem('userID')
+contenedor.innerText = window.localStorage.getItem('userEmail')
+    ? window.localStorage.getItem('userEmail')
+    : window.localStorage.getItem('userID')
 
 function setProdID(id) {
     localStorage.setItem('prodID', id)
     window.location = 'product-info.html'
 }
 
-function deleteID(id) {
-    localStorage.clear('userID', id)
+function deleteID() {
+    localStorage.clear()
+}
+
+if (!window.localStorage.getItem('userID')) {
+    window.location = 'index.html'
 }

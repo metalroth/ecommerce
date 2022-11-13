@@ -2,10 +2,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>eMercado - Todo lo que busques está aquí</title>
         <link
             href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
@@ -51,39 +48,110 @@
                             <a class="nav-link" href="front.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="categories.html"
-                                >Categorías</a
-                            >
+                            <a class="nav-link" href="categories.html">Categorías</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="sell.html">Vender</a>
                         </li>
                         <li class="nav-item">
                             <div class="dropdown nav-item">
-                                <button
-                                    class="dropbtn nav-link"
-                                    id="usuarioID"
-                                ></button>
+                                <button class="dropbtn nav-link" id="usuarioID"></button>
                                 <div class="dropdown-content">
-                                    <a class="nav-link" href="cart.html"
-                                        >Carrito</a
-                                    >
-                                    <a
-                                        onclick="deleteID()"
-                                        class="nav-link"
-                                        href="index.html"
+                                    <a class="nav-link" href="cart.html">Carrito</a>
+                                    <a onclick="deleteID()" class="nav-link" href="index.html"
                                         >Cerrar Sesión</a
                                     >
                                 </div>
                             </div>
                         </li>
+                    </ul>
                 </div>
             </div>
         </nav>
         <main>
             <div class="container">
-                <div class="alert alert-danger text-center" role="alert">
-                    <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+                <div class="d-flex justify-content-between">
+                    <h2 class="m-5">Perfil</h2>
+                    <div>
+                        <img
+                            src="/img/img_perfil.png"
+                            id="profileImage"
+                            class="img-thumbnail rounded float-end"
+                        />
+                        <input class="d-none" id="imageUpload" type="file" />
+                    </div>
+                </div>
+
+                <div class="container row g-3 mt-5">
+                    <div class="col-6 form-floating">
+                        <input
+                            class="form-control"
+                            placeholder="nombre*"
+                            id="nombre"
+                            type="text"
+                            required
+                        />
+                        <label class="form-label" for="nombre">Nombre*</label>
+                    </div>
+                    <div class="col-6 form-floating">
+                        <input
+                            class="form-control"
+                            id="segundoNombre"
+                            name="segundoNombre"
+                            type="text"
+                            placeholder="Segundo Nombre"
+                        />
+                        <label class="form-label" for="segundoNombre">Segundo nombre</label>
+                    </div>
+                    <div class="col-6 form-floating">
+                        <input
+                            class="form-control"
+                            id="apellido"
+                            name="apellido"
+                            type="text"
+                            required
+                            placeholder="Apellido"
+                        />
+                        <label class="form-label" for="apellido">Apellido* </label>
+                    </div>
+                    <div class="col-6 form-floating">
+                        <input
+                            class="form-control"
+                            id="segundoApellido"
+                            name="segundoApellido"
+                            type="text"
+                            placeholder="Segundo Apellido"
+                        />
+                        <label class="form-label" for="segundoApellido">Segundo Apellido</label>
+                    </div>
+                    <div class="col-6 form-floating">
+                        <input
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            type="email"
+                            required
+                            placeholder="Email"
+                        />
+                        <label class="form-label" for="email">email*</label>
+                    </div>
+                    <div class="col-6 form-floating">
+                        <input
+                            class="form-control"
+                            id="telefono"
+                            name="telefono"
+                            type="number"
+                            min="0"
+                            placeholder="Teléfono"
+                        />
+                        <label class="form-label" for="telefono">Teléfono</label>
+                    </div>
+                    <small>*campos requeridos</small>
+                    <div class="col-12">
+                        <button type="button" id="botonCredentials" class="btn btn-primary">
+                            Guardar
+                        </button>
+                    </div>
                 </div>
             </div>
         </main>
@@ -100,8 +168,8 @@
                     - 2022
                 </p>
                 <p>
-                    Clickea <a target="_blank" href="Letra.pdf">aquí</a> para
-                    descargar la letra del obligatorio.
+                    Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del
+                    obligatorio.
                 </p>
             </div>
         </footer>

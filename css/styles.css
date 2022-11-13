@@ -222,8 +222,8 @@ a.custom-card:hover {
     background-color: rgba(255, 255, 255);
     text-align: center;
     box-shadow: 3px 3px 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-        'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+        sans-serif;
     max-width: 70%;
 }
 
@@ -364,4 +364,17 @@ input:hover {
     align-items: center;
     justify-content: center;
     border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#profileImage {
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
 }

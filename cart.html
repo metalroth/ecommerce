@@ -2,10 +2,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>eMercado - Todo lo que busques está aquí</title>
         <link
             href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
@@ -36,27 +33,17 @@
                             <a class="nav-link" href="front.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="categories.html"
-                                >Categorías</a
-                            >
+                            <a class="nav-link" href="categories.html">Categorías</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="sell.html">Vender</a>
                         </li>
                         <li class="nav-item">
                             <div class="dropdown nav-item">
-                                <button
-                                    class="dropbtn nav-link"
-                                    id="usuarioID"
-                                ></button>
+                                <button class="dropbtn nav-link" id="usuarioID"></button>
                                 <div class="dropdown-content">
-                                    <a class="nav-link" href="my-profile.html"
-                                        >Perfil</a
-                                    >
-                                    <a
-                                        onclick="deleteID()"
-                                        class="nav-link"
-                                        href="index.html"
+                                    <a class="nav-link" href="my-profile.html">Perfil</a>
+                                    <a onclick="deleteID()" class="nav-link" href="index.html"
                                         >Cerrar Sesión</a
                                     >
                                 </div>
@@ -67,10 +54,260 @@
             </div>
         </nav>
         <main>
-            <div class="container">
-                <div class="alert alert-danger text-center" role="alert">
-                    <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+            <form class="needs-validation" novalidate>
+                <div id="cartCont" class="container">
+                    <h2 class="p-5 d-flex justify-content-center">Carrito de compras</h2>
+
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header border" id="flush-headingOne">
+                                <button
+                                    id="botonAc"
+                                    class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapseOne"
+                                >
+                                    <div id="imagen"></div>
+                                    <div id="name" class="w-25 m-5 text-center text-dark"></div>
+                                    <div id="unitPrice" class="w-25 text-dark">
+                                        Precio unitario:
+                                    </div>
+                                    <div id="subtotal" class="w-25 text-dark">Subtotal:</div>
+                                </button>
+                            </h2>
+                            <div
+                                id="flush-collapseOne"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne"
+                                data-bs-parent="#accordionFlushExample"
+                            >
+                                <div class="accordion-body">
+                                    <h5>Detalles de compra</h5>
+                                    <div>
+                                        <label class="fw-bolder" for="inputVal"
+                                            >Elegir cantidad para calcular el envío!</label
+                                        >
+                                        <input
+                                            placeholder="cantidad"
+                                            class="m-2 fa-border-all"
+                                            id="inputVal"
+                                            type="number"
+                                            min="0"
+                                            oninput="calc(info)"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="flexRadioDefault"
+                                            id="flexRadioDefault1"
+                                            value="0.15"
+                                            required
+                                        />
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Premium: 2 a 5 días (15%)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="flexRadioDefault"
+                                            id="flexRadioDefault2"
+                                            value="0.07"
+                                            required
+                                        />
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Express: 5 a 8 días (7%)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="flexRadioDefault"
+                                            id="flexRadioDefault3"
+                                            value="0.05"
+                                            required
+                                        />
+                                        <label class="form-check-label" for="flexRadioDefault3">
+                                            Standard: 12 a 15 días (5%)
+                                        </label>
+                                    </div>
+                                </div>
+                                <h5>Dirección de envío</h5>
+                                <div class="input-group">
+                                    <span class="input-group-text">Calle, esquina, y número</span>
+                                    <input
+                                        type="text"
+                                        aria-label="calle"
+                                        class="form-control"
+                                        required
+                                    />
+                                    <input
+                                        type="text"
+                                        aria-label="esquina"
+                                        class="form-control"
+                                        required
+                                    />
+                                    <input
+                                        type="number"
+                                        aria-label="num"
+                                        class="form-control"
+                                        required
+                                    />
+                                </div>
+
+                                <button
+                                    id="btnForm"
+                                    type="button"
+                                    class="btn btn-primary my-2"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"
+                                >
+                                    Seleccionar forma de pago
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <button
+                    type="submit"
+                    class="btn btn-dark w-50 mx-auto d-flex justify-content-center m-5"
+                >
+                    Comprar!
+                </button>
+                <div
+                    class="modal fade"
+                    id="staticBackdrop"
+                    data-bs-backdrop="static"
+                    data-bs-keyboard="false"
+                    tabindex="-1"
+                    aria-labelledby="staticBackdropLabel"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="flexRadioDefault2"
+                                        id="flexRadioDefault4"
+                                        required
+                                    />
+                                    <label
+                                        id="flexRadioDefault4Label"
+                                        class="form-check-label"
+                                        for="flexRadioDefault4"
+                                    >
+                                        Tarjeta de crédito
+                                    </label>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input
+                                        id="numbID"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="código"
+                                        aria-label="código"
+                                        required
+                                    />
+                                    <span class="input-group-text"></span>
+                                    <input
+                                        id="vencID"
+                                        type="month"
+                                        class="form-control"
+                                        placeholder="Vencimiento"
+                                        aria-label="Vencimiento"
+                                        required
+                                    />
+                                </div>
+                                <div class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping"></span>
+                                    <input
+                                        id="codID"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="número"
+                                        aria-label="número"
+                                        aria-describedby="addon-wrapping"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-check my-5 border-top">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="flexRadioDefault2"
+                                        id="flexRadioDefault5"
+                                        required
+                                    />
+                                    <label
+                                        id="flexRadioDefault5Label"
+                                        class="form-check-label"
+                                        for="flexRadioDefault5"
+                                    >
+                                        Transferencia bancaria
+                                    </label>
+                                </div>
+                                <div class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping"
+                                        >Número de cuenta</span
+                                    >
+                                    <input
+                                        id="cuentaID"
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="Número de cuenta"
+                                        aria-label="Número de cuenta"
+                                        aria-describedby="addon-wrapping"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    type="button"
+                                    data-bs-dismiss="modal"
+                                    class="btn btn-primary"
+                                >
+                                    Listo!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <ul class="list-group m-5">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Subtotal <small id="subtotal2"></small>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Envío <small id="env"></small>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Total <small id="total"></small>
+                </li>
+            </ul>
+            <div class="alert alert-success d-none" role="alert">
+                A simple success alert—check it out!
             </div>
         </main>
         <footer class="text-muted">
@@ -86,8 +323,8 @@
                     - 2022
                 </p>
                 <p>
-                    Clickea <a target="_blank" href="Letra.pdf">aquí</a> para
-                    descargar la letra del obligatorio.
+                    Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del
+                    obligatorio.
                 </p>
             </div>
         </footer>

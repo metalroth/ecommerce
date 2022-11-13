@@ -24,10 +24,8 @@ function mostrarProds() {
     let htmlContentToAppend = ''
     for (let item of currentProdsArray) {
         if (
-            (minCount == undefined ||
-                (minCount != undefined && parseInt(item.cost) >= minCount)) &&
-            (maxCount == undefined ||
-                (maxCount != undefined && parseInt(item.cost) <= maxCount))
+            (minCount == undefined || (minCount != undefined && parseInt(item.cost) >= minCount)) &&
+            (maxCount == undefined || (maxCount != undefined && parseInt(item.cost) <= maxCount))
         )
             htmlContentToAppend += `
             <div onclick="setProdID(${item.id})" class="list-group-item list-group-item-action cursor-active">
@@ -50,52 +48,42 @@ function mostrarProds() {
 }
 
 sortInput.addEventListener('input', (event) => {
-    const filtrado = prods.products.filter((value) =>
-        value.name.toLowerCase().includes(event.target.value.toLowerCase())
+    const filtrado = prods.products.filter(
+        (value) =>
+            value.name.toLowerCase().includes(event.target.value.toLowerCase()) ||
+            value.description.toLowerCase().includes(event.target.value.toLowerCase())
     )
     currentProdsArray = filtrado
     mostrarProds()
 })
 
-document
-    .getElementById('clearRangeFilter')
-    .addEventListener('click', function () {
-        document.getElementById('rangeFilterCountMin').value = ''
-        document.getElementById('rangeFilterCountMax').value = ''
+document.getElementById('clearRangeFilter').addEventListener('click', function () {
+    document.getElementById('rangeFilterCountMin').value = ''
+    document.getElementById('rangeFilterCountMax').value = ''
 
+    minCount = undefined
+    maxCount = undefined
+
+    mostrarProds()
+})
+
+document.getElementById('rangeFilterCount').addEventListener('click', function () {
+    minCount = document.getElementById('rangeFilterCountMin').value
+    maxCount = document.getElementById('rangeFilterCountMax').value
+
+    if (minCount != undefined && minCount != '' && parseInt(minCount) >= 0) {
+        minCount = parseInt(minCount)
+    } else {
         minCount = undefined
+    }
+
+    if (maxCount != undefined && maxCount != '' && parseInt(maxCount) >= 0) {
+        maxCount = parseInt(maxCount)
+    } else {
         maxCount = undefined
-
-        mostrarProds()
-    })
-
-document
-    .getElementById('rangeFilterCount')
-    .addEventListener('click', function () {
-        minCount = document.getElementById('rangeFilterCountMin').value
-        maxCount = document.getElementById('rangeFilterCountMax').value
-
-        if (
-            minCount != undefined &&
-            minCount != '' &&
-            parseInt(minCount) >= 0
-        ) {
-            minCount = parseInt(minCount)
-        } else {
-            minCount = undefined
-        }
-
-        if (
-            maxCount != undefined &&
-            maxCount != '' &&
-            parseInt(maxCount) >= 0
-        ) {
-            maxCount = parseInt(maxCount)
-        } else {
-            maxCount = undefined
-        }
-        mostrarProds()
-    })
+    }
+    mostrarProds()
+})
 
 document.getElementById('sortAsc').addEventListener('click', function () {
     sortAndShowProds(ORDER_ASC_BY_COST)
