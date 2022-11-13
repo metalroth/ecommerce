@@ -37,7 +37,7 @@ email.value = localStorage.getItem('userEmail')
 telefono.value = localStorage.getItem('userPhone')
 profileImage.src = localStorage.getItem('profilePic')
     ? (profileImage.src = localStorage.getItem('profilePic'))
-    : (profileImage.src = '/img/img_perfil.png')
+    : (profileImage.src = 'img/img_perfil.png')
 
 profileImage.addEventListener('click', () => {
     imageUpload.click()
